@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 export default function SignUp() {
+  const navigate = useNavigate();
   const initialState = {
     name: "",
     email: "",
@@ -26,8 +27,8 @@ export default function SignUp() {
     }
     const res = await axios.post("http://localhost:8080/signup", payload);
     localStorage.setItem("token", res.data.token);
-    alert("user created");
     setUser(initialState);
+    navigate("/home");
   };
 
   return (

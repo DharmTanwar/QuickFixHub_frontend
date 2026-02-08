@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
-
+import {useNavigate} from "react-router-dom"
 export default function Login() {
+  const navigate=useNavigate();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -21,6 +22,7 @@ export default function Login() {
       email: "",
       password: "",
     });
+    navigate("/home");
   };
 
   return (
