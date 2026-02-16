@@ -27,6 +27,7 @@ export default function SignUp() {
     }
     const res = await axios.post("http://localhost:8080/signup", payload);
     localStorage.setItem("token", res.data.token);
+    localStorage.setItem("role", res.data.data.role);
     setUser(initialState);
     navigate("/home");
   };

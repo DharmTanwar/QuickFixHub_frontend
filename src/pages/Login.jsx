@@ -12,11 +12,13 @@ export default function Login() {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
     e.preventDefault();
     const res = await axios.post("http://localhost:8080/login", user);
+    console.log(res.data);
     console.log(res.data.token);
     localStorage.setItem("token", res.data.token);
+     localStorage.setItem("role", res.data.data.role);
     alert("login succesfull");
     setUser({
       email: "",
@@ -35,11 +37,11 @@ export default function Login() {
     >
       <div className="container">
         <div className="row justify-content-center">
-          {/* Width BADHAI - Height SAME */}
+         
           <div className="col-lg-9 col-xl-8">
             <div className="card border-0 shadow-lg overflow-hidden">
               <div className="row g-0">
-                {/* Left Side Decor - SAME HEIGHT */}
+              
                 <div
                   className="col-lg-7 d-none d-lg-block p-5 text-white"
                   style={{
