@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-
-
 export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isProvider, setIsProvider] = useState(false);
@@ -53,6 +51,10 @@ export default function Navbar() {
     navigate("/");
   };
 
+  const handleHomeClick = () => {
+    navigate("/home");
+  };
+
   if (isLoggedIn) {
     return (
       <nav
@@ -62,7 +64,7 @@ export default function Navbar() {
         }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand fw-bold fs-3" href="/">
+          <a className="navbar-brand fw-bold fs-3" href="/" onClick={handleHomeClick}>
             <span className="text-warning">Quick</span>
             <span className="text-white">Fix Hub</span>
           </a>
@@ -82,11 +84,19 @@ export default function Navbar() {
               {isProvider ? (
                 <>
                   <li className="nav-item">
+                    <button
+                      className="nav-link btn btn-outline-light fw-bold px-4 ms-2"
+                      onClick={handleHomeClick}
+                    >
+                      <i className="bi bi-house-door me-1"></i>Home
+                    </button>
+                  </li>
+                  <li className="nav-item">
                     <a
                       className="nav-link btn btn-warning text-dark fw-bold px-4 ms-2"
-                      href="/mybookings"
+                      href="/booking"
                     >
-                      My Bookings
+                      <i className="bi bi-calendar-check me-1"></i>My Bookings
                     </a>
                   </li>
                   <li className="nav-item">
@@ -94,19 +104,29 @@ export default function Navbar() {
                       className="nav-link btn btn-outline-light fw-bold px-4 ms-2"
                       onClick={handleLogout}
                     >
-                      Logout
+                      <i className="bi bi-box-arrow-right me-1"></i>Logout
                     </button>
                   </li>
                 </>
               ) : (
-                <li className="nav-item">
-                  <button
-                    className="nav-link btn btn-outline-light fw-bold px-4 ms-2"
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </button>
-                </li>
+                <>
+                  <li className="nav-item">
+                    <button
+                      className="nav-link btn btn-outline-light fw-bold px-4 ms-2"
+                      onClick={handleHomeClick}
+                    >
+                      <i className="bi bi-house-door me-1"></i>Home
+                    </button>
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      className="nav-link btn btn-outline-light fw-bold px-4 ms-2"
+                      onClick={handleLogout}
+                    >
+                      <i className="bi bi-box-arrow-right me-1"></i>Logout
+                    </button>
+                  </li>
+                </>
               )}
             </ul>
           </div>
@@ -123,7 +143,7 @@ export default function Navbar() {
       }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand fw-bold fs-3" href="/">
+        <a className="navbar-brand fw-bold fs-3" href="/" onClick={handleHomeClick}>
           <span className="text-warning">Quick</span>
           <span className="text-white">Fix Hub</span>
         </a>
@@ -141,11 +161,19 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
+              <button
+                className="nav-link btn btn-outline-light fw-bold px-4 ms-2"
+                onClick={handleHomeClick}
+              >
+                <i className="bi bi-house-door me-1"></i>Home
+              </button>
+            </li>
+            <li className="nav-item">
               <a
                 className="nav-link btn btn-warning text-dark fw-bold px-4 ms-2"
                 href="/login"
               >
-                Login
+                <i className="bi bi-box-arrow-in-right me-1"></i>Login
               </a>
             </li>
             <li className="nav-item">
@@ -153,7 +181,7 @@ export default function Navbar() {
                 className="nav-link btn btn-warning text-dark fw-bold px-4 ms-2"
                 href="/signup"
               >
-                Sign Up
+                <i className="bi bi-person-plus me-1"></i>Sign Up
               </a>
             </li>
           </ul>
