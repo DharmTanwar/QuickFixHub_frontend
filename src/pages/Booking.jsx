@@ -11,7 +11,7 @@ export default function Booking() {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:8080/getbooking", {
+        const res = await axios.get("https://quickfixhub-backend.onrender.com/getbooking", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setBooking(res.data.data || []);
@@ -45,7 +45,7 @@ export default function Booking() {
 
       // Backend call
       await axios.put(
-        `http://localhost:8080/${action}/${bookingId}`,
+        `https://quickfixhub-backend.onrender.com/${action}/${bookingId}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -55,7 +55,7 @@ export default function Booking() {
       // Revert on error
       console.log(`Failed to ${action} booking`);
       // Refresh data on error
-      const res = await axios.get("http://localhost:8080/getbooking", {
+      const res = await axios.get("https://quickfixhub-backend.onrender.com/getbooking", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBooking(res.data.data || []);

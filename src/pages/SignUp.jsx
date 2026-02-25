@@ -25,7 +25,7 @@ export default function SignUp() {
       delete payload.phone;
       delete payload.service;
     }
-    const res = await axios.post("http://localhost:8080/signup", payload);
+    const res = await axios.post("https://quickfixhub-backend.onrender.com/signup", payload);
     localStorage.setItem("token", res.data.token);
     localStorage.setItem("role", res.data.data.role);
     setUser(initialState);

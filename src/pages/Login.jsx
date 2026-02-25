@@ -14,7 +14,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => { 
     e.preventDefault();
-    const res = await axios.post("http://localhost:8080/login", user);
+    const res = await axios.post("https://quickfixhub-backend.onrender.com/login", user);
     console.log(res.data);
     console.log(res.data.token);
     localStorage.setItem("token", res.data.token);

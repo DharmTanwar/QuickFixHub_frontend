@@ -32,7 +32,7 @@ const [showBooking ,setShowBooking]=useState([]);
     const fetchProvider = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:8080/provider", {
+        const res = await axios.get("https://quickfixhub-backend.onrender.com/provider", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProvider(res.data.data);
@@ -96,7 +96,7 @@ const [showBooking ,setShowBooking]=useState([]);
 
 
       const res = await axios.post(
-        "http://localhost:8080/booking",
+        "https://quickfixhub-backend.onrender.com/booking",
         {
           provider: selected._id,
           service: bookingForm.service,

@@ -6,11 +6,13 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Booking from "./pages/Booking";
+import AppLoader from "./pages/AppLoader";
 
 function App() {
   return (
     <div className="d-flex flex-column min-vh-100">
       <BrowserRouter>
+      <AppLoader/>
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
