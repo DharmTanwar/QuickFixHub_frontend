@@ -4,7 +4,7 @@ function AppLoader({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://quickfixhub-backend.onrender.com/health")
+    fetch("https://quickfixhub-backend.onrender.com/") 
       .then(() => setLoading(false))
       .catch(() => setLoading(false));
   }, []);
